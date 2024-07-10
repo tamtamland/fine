@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バーガーボタン</title>
+  <style>
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    .burger{
+      width: 60px;
+      height: 50px;
+      border: 1px solid #000;
+      /* 枠作り */
+      position: fixed;
+      top: 50px;/* t50 */
+      left: 50px;/* l50 */
+      /* 位置の設定 */
+    }
+    .burger span{
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      /* 中身の位置の設定　縦・横中央揃い */
+      width: 80%;
+      height: 4px;
+      background-color: #000;/* bgc#000 */
+      /* 中身の設定 */ 
+      transition: 0.3s;
+      /* spanが動く時間設定 */
+    }
+    .burger span:nth-child(1){
+      top: -40%;
+    }
+    .burger span:nth-child(3){
+      top: 40%;
+    }
+
+    .burger.active span:nth-child(1){
+      top: 0;
+      /* transform: rotate(225deg); */
+    }
+    
+    .burger.active span:nth-child(2){
+      top: 0;
+      /* transform: rotate(-225deg); */
+    }
+
+    .burger.active span:nth-child(3){
+      top: 0;
+      /* transform: rotate(-225deg); */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+ <script>
+  $(function(){
+    $('.burger').on('click',function(){
+      $('.burger').toggleClass('active');
+    
+    });
+  
+  });
+ </script> 
+</body>
+</html>
